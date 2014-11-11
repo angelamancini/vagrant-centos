@@ -22,6 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # run a shell script or two
-  config.vm.provision "shell", path: "./scripts/bashrc.sh"
+  # config.vm.provision "shell", path: "./scripts/bashrc.sh"
+  # config.vm.provision "shell", inline: "cp /vagrant/scripts/git.sh /etc/profile.d"
 
 end
