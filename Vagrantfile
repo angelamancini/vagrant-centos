@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "centos65-x64-packer"
   config.vm.hostname = "vgrnt-plgrnd"
-  config.vm.box_url = "file://./packer/builds/virtualbox/CentOS-6.6-x86_64-minimal-latest.box"
+  config.vm.box_url = "file://./packer/builds/virtualbox/CentOS-6.6-x86_64.box"
 
   # allow guest os to use host os ssh keys
   config.ssh.forward_agent = true
