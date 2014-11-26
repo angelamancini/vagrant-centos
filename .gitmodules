@@ -1,3 +1,6 @@
 [submodule "chef-cookbooks"]
 	path = chef-cookbooks
 	url = git@github.com:erumble/chef-cookbooks.git
+[submodule "packer-templates"]
+	path = packer-templates
+	url = git@github.com:erumble/packer-templates.git
