@@ -14,11 +14,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
   # config.omnibus.chef_version = :latest
-  config.vm.provision "chef_solo" do |chef|
+  config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["./chef-cookbooks/cookbooks", "./chef-cookbooks/site-cookbooks"]
     chef.roles_path = "./chef-cookbooks/roles"
     chef.data_bags_path = "./chef-cookbooks/data_bags"
-    chef.add_role "mysql_server"
+    chef.add_recipe 'mysql::client'
+    chef.add_recipe 'mysql::server'
+    # chef.add_role "mysql_server"
   end
 
   # run a shell script or two
