@@ -13,14 +13,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # allow guest os to use host os ssh keys
   config.ssh.forward_agent = true
 
+  # forward port for https access
+  config.vm.network :forwarded_port, guest: 80, host: 8081
+
   # config.omnibus.chef_version = :latest
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["./chef-cookbooks/cookbooks", "./chef-cookbooks/site-cookbooks"]
     chef.roles_path = "./chef-cookbooks/roles"
     chef.data_bags_path = "./chef-cookbooks/data_bags"
-    chef.add_recipe 'mysql::client'
-    chef.add_recipe 'mysql::server'
-    # chef.add_role "mysql_server"
+    chef.add_role "mysql_server"
+    # chef.add_role "passenger_apache_server"
   end
 
   # run a shell script or two
