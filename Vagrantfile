@@ -27,6 +27,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # run a shell script or two
   # config.vm.provision "shell", path: "./scripts/bashrc.sh"
-  # config.vm.provision "shell", inline: "cp /vagrant/scripts/git.sh /etc/profile.d"
+
+  # Add /usr/local/bin to the PATH for all users, and to the sudo secure_path
+  # This allows the `gem` command to be used
+  config.vm.provision "shell", inline: "cp /vagrant/scripts/custom_path.sh /etc/profile.d"
+  config.vm.provision "shell", inline: "cp /vagrant/scripts/secure_path /etc/sudoers.d"
 
 end
