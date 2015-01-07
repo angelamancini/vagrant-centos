@@ -7,7 +7,8 @@ VAGRANTFILE_API_VERSION = "2"
 # Ports to forward
 PORTS = [
   3000, # rails application
-  3306  # mysql
+  3306, # mysql
+  2812, # monit
 ]
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
